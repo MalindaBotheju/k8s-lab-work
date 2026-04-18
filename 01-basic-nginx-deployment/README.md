@@ -7,6 +7,11 @@ The objective of this lab is to deploy a scalable web server using Nginx, expose
 * **Local Cluster:** Docker Desktop (with Kubernetes enabled via Kubeadm)
 * **CLI Tool:** `kubectl`
 
+## 📊 Deployment Workflow Diagram
+This diagram illustrates the complete workflow: from deploying the objects to accessing the app on `localhost`, and the "Chaos Experiment" proving self-healing.
+
+![Nginx Workflow Diagram](screenshots/01-nginx-workflow.png)
+
 ## 📂 Files in this Mission
 * `deployment.yaml`: Manages 2 replicas of the Nginx container. It ensures that the specified number of pods are always running.
 * `service.yaml`: A `NodePort` service that acts as a load balancer, opening a port on the host machine to direct traffic into the pods.
@@ -45,6 +50,7 @@ kubectl get service nginx-service
 
 ### 🎉 Result
 
+![Nginx Success](screenshots/01-nginx-success.png)
 Successfully routed traffic from the local browser through the Kubernetes Service and into the Nginx Pods\!
 
 -----
