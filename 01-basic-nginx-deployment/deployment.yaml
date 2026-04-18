@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 2          # This tells K8s to run two copies
+  selector:
+    matchLabels:
+      app: web         # This label must match the Service selector!
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.25 # The actual "Chef" (the software)
+        ports:
+        - containerPort: 80
